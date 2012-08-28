@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sample.scott.dao.sqlMap.Emp">
+
+    <select id="selectList" resultType="com.sample.scott.domain.Emp" >
+		SELECT EMPNO
+		        ,DEPTNO
+          FROM emp
+         WHERE 0=0
+	</select>
+
+    <insert id="insert" parameterType="com.sample.scott.domain.Emp">
+      INSERT INTO emp(
+                                ORDER_TYPE          /*주문형태*/
+                                ,ORDER_NO           /*주문번호*/
+                                ,CUSTOMER_NO        /*고객코드*/
+                                )
+                         VALUES(
+                                 #{order_type}         /*주문형태*/
+                                ,#{order_no}           /*주문번호*/
+                                ,#{customer_no}        /*고객코드*/
+                                 )
+	</insert>
+
+    <update id="update" parameterType="com.sample.scott.domain.Emp">
+        UPDATE emp SET
+        CUSTOMER_NO        = #{customer_no}      /*고객코드*/
+        ,UPDATED_BY         = #{updated_by}       /*수정자*/
+        ,UPDATED_DATE       = now()               /*수정일시*/
+        WHERE EMPNO = #{empno}
+    </update>
+
+
+    <delete id="delete" parameterType="String">
+      DELETE FROM emp WHERE EMPNO = #{empno}  /*주문번호*/
+    </delete>
+
+    <!--foreach사용시 -->
+    <!--<insert id="insert" useGeneratedKeys="true" parameterType="java.util.List">
+        INSERT INTO dist_ord_dtl(
+        EMPNO         /*주문번호*/
+        ,DEPTNO         /*주문번호*/
+        )
+        VALUES (
+        <foreach collection="_parameter.list" item="emp" separator="),(" index="index" open="" close="">
+            #{emp.empno}
+            ,#{emp.deptno}
+        </foreach>
+        )
+    </insert>-->
+
+    <!--프로시저사용시 -->
+    <!--<update id="delete" parameterType="string" statementType="CALLABLE">
+		call empno_delete(#{empno, mode=IN,jdbcType=VARCHAR});
+	</update>-->
+    <!--int result = sqlSession.delete("com.sample.scott.dao.sqlMap.Emp.delete", empno);-->
+
+
+</mapper>
