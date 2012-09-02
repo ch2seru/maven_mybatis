@@ -1,5 +1,5 @@
 @charset "utf-8";
-body{ text-align:center; color:#FFF; background:#000;}
+body{ text-align:center; color:#000;}
 div#wapper{ text-align:left; width:800px; margin:0 auto; }
 header, footer, nav, aside, section, article {
     display:block;
@@ -23,10 +23,9 @@ footer{
 }
 
 header, nav, aside, section, footer {
-    background-color: #666;
+    color:#000;
 }
 article {
     width:90%;
     margin:20px;
-    background-color: #999;
 }
