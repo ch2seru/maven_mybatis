@@ -1,6 +1,6 @@
 package com.sample.scott.dao;
 
-import com.sample.scott.domain.Emp;
+import com.sample.scott.domain.EmpModel;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,24 +17,24 @@ public class EmpDao implements IEmpDao {
     @Autowired
     private SqlSession sqlSession;
 
-    public List<Emp> list() {
-        List<Emp> list = sqlSession.selectList("com.sample.scott.dao.sqlMap.Emp.selectList");
+    public List<EmpModel> list() {
+        List<EmpModel> list = sqlSession.selectList("com.sample.scott.dao.sqlMap.Emp.selectList");
         return list;
     }
 
-    public Emp get(int empno) {
+    public EmpModel get(int empno) {
         //Emp emp = (Emp) sessionFactory.getCurrentSession().get(Emp.class,empno);
         //return emp;
         //DistOrder bean = (DistOrder) sqlSession.selectOne("com.wyzsoft.distribution.dao.sqlMap.DistOrder.selectOne", order_no);
         return null;
     }
 
-    public void save(Emp emp) {
+    public void save(EmpModel emp) {
         //sessionFactory.getCurrentSession().save(emp);
         //int result = sqlSession.insert("com.wyzsoft.distribution.dao.sqlMap.DistOrdDtl.insert", distOrdDtlList);
     }
 
-    public void update(Emp emp) {
+    public void update(EmpModel emp) {
         //sessionFactory.getCurrentSession().merge(emp);
         //int result = sqlSession.update("com.wyzsoft.distribution.dao.sqlMap.DistOrder.update", distOrder);
     }

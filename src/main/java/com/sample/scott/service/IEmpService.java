@@ -1,6 +1,6 @@
 package com.sample.scott.service;
 
-import com.sample.scott.domain.Emp;
+import com.sample.scott.domain.EmpModel;
 
 import java.util.List;
 
@@ -11,10 +11,10 @@ import java.util.List;
  */
 public interface IEmpService {
 
-    public List<Emp> getList();
-    public Emp get(int empno);
-    public void save(Emp emp);
-    public void modify(Emp emp);
+    public List<EmpModel> getList();
+    public EmpModel get(int empno);
+    public void save(EmpModel emp);
+    public void modify(EmpModel emp);
     public void remove(int empno);
 
 }

@@ -1,7 +1,7 @@
 package com.sample.scott.controller;
 
-import com.sample.scott.domain.Emp;
-import com.sample.scott.service.EmpService;
+import com.sample.scott.domain.EmpModel;
+import com.sample.scott.service.IEmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,7 +21,7 @@ import java.util.Map;
 @Controller
 public class EmpController {
     @Autowired
-    private EmpService empService;
+    private IEmpService empService;
 
     @RequestMapping("/index")
     public String list(Map<String, Object> map){
@@ -31,7 +31,7 @@ public class EmpController {
 
     @RequestMapping("/form")
     public String form(Map<String, Object> map) {
-        map.put("emp", new Emp());
+        map.put("emp", new EmpModel());
         return "/emp/save";
     }
 
@@ -44,14 +44,14 @@ public class EmpController {
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(@ModelAttribute("Emp")
-                             Emp emp, BindingResult result) {
+                           EmpModel emp, BindingResult result) {
         empService.save(emp);
         return "redirect:/index";
     }
 
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
     public String modify(@ModelAttribute("Emp")
-                       Emp emp, BindingResult result) {
+                             EmpModel emp, BindingResult result) {
         empService.modify(emp);
         return "redirect:/info/"+emp.getEmpno();
     }

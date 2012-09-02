@@ -1,6 +1,6 @@
 package com.sample.scott.dao;
 
-import com.sample.scott.domain.Emp;
+import com.sample.scott.domain.EmpModel;
 
 import java.util.List;
 
@@ -11,10 +11,10 @@ import java.util.List;
  */
 public interface IEmpDao {
 
-    public List<Emp> list();
-    public Emp get(int empno);
-    public void save(Emp emp);
-    public void update(Emp emp);
+    public List<EmpModel> list();
+    public EmpModel get(int empno);
+    public void save(EmpModel emp);
+    public void update(EmpModel emp);
     public void delete(int id);
 
 }

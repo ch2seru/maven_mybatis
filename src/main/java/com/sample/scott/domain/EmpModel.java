@@ -8,7 +8,7 @@ import javax.persistence.Entity;
  * Date: 12. 4. 2
  */
 @Entity
-public class Emp {
+public class EmpModel {
     private int empno;
     private String ename;
     private String job;
