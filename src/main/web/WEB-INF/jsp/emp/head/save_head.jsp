@@ -5,20 +5,19 @@ common/list,
 common/link,
 common/highlighteditables"></script>
 <script type="text/javascript">
-    Aloha.ready( function() {
-        // Make #content editable once Aloha is loaded and ready.
-        Aloha.jQuery('#content').aloha();
-    });
+    //Aloha.ready( function() {
+    //    Aloha.jQuery('#content').aloha();
+    //});
 </script>
 <script>
     function save(){
-        document.getElementById("content").value=document.getElementById("content-aloha").innerHTML;
+        //document.getElementById("content").value=document.getElementById("content-aloha").innerHTML;
         document.saveForm.action="/save";
         document.saveForm.submit();
     }
 
     function modify(){
-        document.getElementById("content").value=document.getElementById("content-aloha").innerHTML;
+        //document.getElementById("content").value=document.getElementById("content-aloha").innerHTML;
         document.saveForm.action="/modify";
         document.saveForm.submit();
     }

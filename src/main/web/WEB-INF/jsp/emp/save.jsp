@@ -19,8 +19,24 @@
             <td><form:input path="ename"></form:input></td>
         </tr>
         <tr>
+            <td>job</td>
+            <td><form:input path="job"></form:input></td>
+        </tr>
+        <tr>
             <td>mgr</td>
             <td><form:input path="mgr"></form:input></td>
+        </tr>
+        <tr>
+            <td>sal</td>
+            <td><form:input path="sal"></form:input></td>
+        </tr>
+        <tr>
+            <td>comm</td>
+            <td><form:input path="comm"></form:input></td>
+        </tr>
+        <tr>
+            <td>deptno</td>
+            <td><form:input path="deptno"></form:input></td>
         </tr>
     </table>
 </form:form>

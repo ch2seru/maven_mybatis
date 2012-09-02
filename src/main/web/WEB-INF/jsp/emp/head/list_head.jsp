@@ -34,8 +34,8 @@
     }
 
     //상세페이지
-    function viewInfo(genCode){
-        document.linkForm.gen_code.value=genCode;
+    function viewInfo(empno){
+        document.linkForm.empno.value=empno;
         document.linkForm.submit();
     }
 </script>
