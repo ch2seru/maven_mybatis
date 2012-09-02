@@ -11,6 +11,7 @@
     <title><tiles:insertAttribute name="title" /></title>
     <link rel="stylesheet" type="text/css" href="/common/head/style.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/common/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/common/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/common/bootstrap/js/bootstrap.js"></script>
