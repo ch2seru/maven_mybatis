@@ -1,4 +1,4 @@
-package com.sample.scott.domain;
+package com.sample.scott.model;
 
 import javax.persistence.Entity;
 

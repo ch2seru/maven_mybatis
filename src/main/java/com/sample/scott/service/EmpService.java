@@ -1,7 +1,7 @@
 package com.sample.scott.service;
 
 import com.sample.scott.dao.IEmpDao;
-import com.sample.scott.domain.EmpModel;
+import com.sample.scott.model.EmpModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

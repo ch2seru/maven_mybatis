@@ -1,6 +1,6 @@
 package com.sample.scott.dao;
 
-import com.sample.scott.domain.EmpModel;
+import com.sample.scott.model.EmpModel;
 
 import java.util.List;
 

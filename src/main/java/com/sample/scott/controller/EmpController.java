@@ -1,6 +1,6 @@
 package com.sample.scott.controller;
 
-import com.sample.scott.domain.EmpModel;
+import com.sample.scott.model.EmpModel;
 import com.sample.scott.service.IEmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
