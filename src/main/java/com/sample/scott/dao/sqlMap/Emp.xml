@@ -5,38 +5,85 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.sample.scott.dao.sqlMap.Emp">
 
+    <select id="selectOne" resultType="com.sample.scott.model.EmpModel" parameterType="int">
+		SELECT EMPNO
+                ,ENAME
+                ,JOB
+                ,MGR
+                ,HIREDATE
+                ,SAL
+                ,COMM
+                ,DEPTNO
+          FROM emp /*emp 테이블*/
+         WHERE EMPNO = #{empno}
+	</select>
+
     <select id="selectList" resultType="com.sample.scott.model.EmpModel" >
 		SELECT EMPNO
-		        ,DEPTNO
+                ,ENAME
+                ,JOB
+                ,MGR
+                ,HIREDATE
+                ,SAL
+                ,COMM
+                ,DEPTNO
           FROM emp
          WHERE 0=0
 	</select>
 
     <insert id="insert" parameterType="com.sample.scott.model.EmpModel">
       INSERT INTO emp(
-                                ORDER_TYPE          /*주문형태*/
-                                ,ORDER_NO           /*주문번호*/
-                                ,CUSTOMER_NO        /*고객코드*/
-                                )
+                            EMPNO
+                            ,ENAME
+                            ,JOB
+                            ,MGR
+                            ,HIREDATE
+                            ,SAL
+                            ,COMM
+                            ,DEPTNO
+                         )
                          VALUES(
-                                 #{order_type}         /*주문형태*/
-                                ,#{order_no}           /*주문번호*/
-                                ,#{customer_no}        /*고객코드*/
+                                    #{empno}
+                                    ,#{ename}
+                                    ,#{job}
+                                    ,#{mgr}
+                                    ,sysdate
+                                    ,#{sal}
+                                    ,#{comm}
+                                    ,#{deptno}
                                  )
 	</insert>
 
     <update id="update" parameterType="com.sample.scott.model.EmpModel">
         UPDATE emp SET
-        CUSTOMER_NO        = #{customer_no}      /*고객코드*/
-        ,UPDATED_BY         = #{updated_by}       /*수정자*/
-        ,UPDATED_DATE       = now()               /*수정일시*/
+                ENAME     =  #{ename}
+                ,JOB      =  #{job}
+                ,MGR      =  #{mgr}
+                ,SAL      =  #{sal}
+                ,COMM     =  #{comm}
+                ,DEPTNO   =  #{deptno}
         WHERE EMPNO = #{empno}
     </update>
 
 
-    <delete id="delete" parameterType="String">
+    <delete id="delete" parameterType="int">
       DELETE FROM emp WHERE EMPNO = #{empno}  /*주문번호*/
     </delete>
+
+    <select id="totalCount" resultType="int" parameterType="java.util.Map">
+        SELECT   count(EMPNO)
+        FROM emp /*공통코드 테이블*/
+        WHERE 0=0
+        <if test="search_keyword != null and  search_keyword != ''">
+            <if test="search_column == 'gen_code'">
+                AND EMPNO like concat('%',#{search_keyword},'%')
+            </if>
+            <if test="search_column == 'description'">
+                AND EMPNO like concat('%',#{search_keyword},'%')
+            </if>
+        </if>
+
+    </select>
 
     <!--foreach사용시 -->
     <!--<insert id="insert" useGeneratedKeys="true" parameterType="java.util.List">

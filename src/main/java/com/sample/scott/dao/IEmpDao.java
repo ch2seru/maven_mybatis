@@ -13,8 +13,9 @@ public interface IEmpDao {
 
     public List<EmpModel> list();
     public EmpModel get(int empno);
-    public void save(EmpModel emp);
-    public void update(EmpModel emp);
-    public void delete(int id);
+    public int save(EmpModel model);
+    public int update(EmpModel model);
+    public int delete(int id);
 
+    public int getTotalCount();
 }

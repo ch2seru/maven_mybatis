@@ -13,8 +13,9 @@ public interface IEmpService {
 
     public List<EmpModel> getList();
     public EmpModel get(int empno);
-    public void save(EmpModel emp);
-    public void modify(EmpModel emp);
-    public void remove(int empno);
+    public int save(EmpModel emp);
+    public int modify(EmpModel emp);
+    public int remove(int empno);
 
+    public int getTotalCount();
 }

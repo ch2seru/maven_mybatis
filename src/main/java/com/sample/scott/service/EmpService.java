@@ -27,15 +27,19 @@ public class EmpService implements IEmpService {
         return empDao.get(empno);
     }
 
-    public void save(EmpModel emp) {
-        empDao.save(emp);
+    public int save(EmpModel emp) {
+        return empDao.save(emp);
     }
 
-    public void modify(EmpModel emp) {
-        empDao.update(emp);
+    public int modify(EmpModel emp) {
+        return empDao.update(emp);
     }
 
-    public void remove(int empno) {
-        empDao.delete(empno);
+    public int remove(int empno) {
+        return empDao.delete(empno);
+    }
+
+    public int getTotalCount() {
+        return empDao.getTotalCount();
     }
 }

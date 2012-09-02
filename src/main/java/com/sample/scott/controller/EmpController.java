@@ -1,6 +1,7 @@
 package com.sample.scott.controller;
 
 import com.sample.scott.model.EmpModel;
+import com.sample.scott.model.SearchModel;
 import com.sample.scott.service.IEmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +25,11 @@ public class EmpController {
     private IEmpService empService;
 
     @RequestMapping("/index")
-    public String list(Map<String, Object> map){
+    public String list(Map<String, Object> map, @ModelAttribute("Search")
+    SearchModel search){
+        map.put("search",search);
         map.put("empList", empService.getList());
+        map.put("totalCount", empService.getTotalCount());
         return  "/emp/list";
     }
 
@@ -43,14 +47,14 @@ public class EmpController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@ModelAttribute("Emp")
+    public String save(@ModelAttribute("emp")
                            EmpModel emp, BindingResult result) {
         empService.save(emp);
         return "redirect:/index";
     }
 
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
-    public String modify(@ModelAttribute("Emp")
+    public String modify(@ModelAttribute("emp")
                              EmpModel emp, BindingResult result) {
         empService.modify(emp);
         return "redirect:/info/"+emp.getEmpno();

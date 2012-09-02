@@ -23,28 +23,32 @@ public class EmpDao implements IEmpDao {
     }
 
     public EmpModel get(int empno) {
-        //Emp emp = (Emp) sessionFactory.getCurrentSession().get(Emp.class,empno);
-        //return emp;
-        //DistOrder bean = (DistOrder) sqlSession.selectOne("com.wyzsoft.distribution.dao.sqlMap.DistOrder.selectOne", order_no);
-        return null;
+        EmpModel emp = (EmpModel) sqlSession.selectOne("com.sample.scott.dao.sqlMap.Emp.selectOne",empno);
+        return emp;
     }
 
-    public void save(EmpModel emp) {
-        //sessionFactory.getCurrentSession().save(emp);
-        //int result = sqlSession.insert("com.wyzsoft.distribution.dao.sqlMap.DistOrdDtl.insert", distOrdDtlList);
+    public int save(EmpModel model) {
+        int result = 0;
+        result = sqlSession.insert("com.sample.scott.dao.sqlMap.Emp.insert", model);
+        return result;
     }
 
-    public void update(EmpModel emp) {
-        //sessionFactory.getCurrentSession().merge(emp);
-        //int result = sqlSession.update("com.wyzsoft.distribution.dao.sqlMap.DistOrder.update", distOrder);
+    public int update(EmpModel model) {
+        int result = 0;
+        result = sqlSession.update("com.sample.scott.dao.sqlMap.Emp.update", model);
+        return result;
     }
 
-    public void delete(int empno) {
-        //Emp emp = (Emp) sessionFactory.getCurrentSession().load(Emp.class,empno);
-        //if(empno>0){
-        //    sessionFactory.getCurrentSession().delete(emp);
-        //}
-        //int result = sqlSession.delete("com.wyzsoft.distribution.dao.sqlMap.DistOrder.delete", order_no);
+    public int delete(int empno) {
+        int result = 0;
+        result = sqlSession.delete("com.sample.scott.dao.sqlMap.Emp.delete", empno);
+        return result;
+    }
+
+    public int getTotalCount() {
+        int result = 0;
+        result = Integer.parseInt(sqlSession.selectOne("com.sample.scott.dao.sqlMap.Emp.totalCount").toString());
+        return result;
     }
 
 }
