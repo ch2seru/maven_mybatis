@@ -18,7 +18,7 @@
   
   <definition name="/emp/*" extends="baseLayout">
       <put-attribute name="title"  value="emp"/>
-      <put-attribute name="head" value="/WEB-INF/jsp/emp/head/head.jsp"/>
+      <put-attribute name="head" value="/WEB-INF/jsp/emp/head/{1}_head.jsp"/>
       <put-attribute name="aside"   value="/WEB-INF/jsp/emp/submenu.jsp"/>
       <put-attribute name="body"   value="/WEB-INF/jsp/emp/{1}.jsp"/>
   </definition>
